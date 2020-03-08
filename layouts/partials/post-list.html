@@ -16,16 +16,38 @@
   {{ end }}
   <div class="timeline-item">
     <div class="timeline-left tooltip" data-tooltip="{{ .Date.Format "January 2006" }}">
-      <i class="timeline-icon"></i>
+      <a href="{{ .Permalink }}" style="text-decoration:none"><i class="timeline-icon"></i></a>
     </div>
     <div class="timeline-content">
-      <div class="divider my-2" data-content="{{ .Date.Format "January" }}"></div>
-      <a class="tile s-rounded shadow my-gap p-2" href="{{ .Permalink }}" style="text-decoration:none">
-        <div class="tile-content">
-          <div class="tile-title h4">{{ .LinkTitle }}</div>
-          <div class="tile-subtitle text-dark">{{ .Description | markdownify }}</div>
-        </div>
-      </a>
+      <div class="divider" data-content="{{ .Date.Format "January" }}"></div>
+        {{ if .LinkTitle }}
+        <a class="tile s-rounded my-gap" href="{{ .Permalink }}" style="text-decoration:none">
+          <div class="tile-content">
+            <div class="tile-title h4">{{ .LinkTitle }}</div>
+            <div class="tile-subtitle text-dark">{{ .Description | markdownify }}</div>
+          </div>
+        </a>
+        {{end}}
+        {{ range index .Params "mf-like-of" }}
+				<div class="jrnl-mf-data p-summary"> <span style="color:#E24E42;">★</span> Liked the post 
+					<a class="u-like-of" href="{{ . }}" target="_blank" rel="like-of"> 
+						{{.}}
+					</a>
+				</div>
+			{{ end  }}
+			{{ range index .Params "mf-photo" }}
+				<img class="post-featured-image" src="{{ . }}"> 
+			{{ end  }}
+			{{ range index .Params "mf-in-reply-to" }}
+			<div class="jrnl-mf-data">
+				<span style="color:#E24E42;"><i class="fa fa-comments"></i></span> in reply to
+				<a class="u-in-reply-to" href="{{ . }}" target="_blank" rel="in-reply-to"> 
+					{{ $url := urls.Parse . }}		
+					a post on {{ $url.Host }}
+				</a>
+			</div>
+      {{ end  }}
+      <div class="e-content">{{ .Content }}</div>
     </div>
   </div>
 {{ end }}

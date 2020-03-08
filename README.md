@@ -14,7 +14,7 @@ cd MySite
 ```  
 3. Clone this repository
 ```bash
-git clone --recursive https://github.com/st-wong/hugo-spectre-pixel-theme.git themes/spectre-pixel
+git clone --recursive https://github.com/am1t/hugo-spectre-pixel-theme.git themes/spectre-pixel
 ```
 4. Configure
 Use your favourite editor to configure `config.toml`. More details in [Configuration](#configuration).

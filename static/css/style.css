@@ -120,3 +120,44 @@
     margin-top: 2rem!important;
     margin-bottom: 2rem!important;
 }
+
+p {
+    padding: 5px;
+    margin: 0 0 10px;
+}
+
+ol, ul {
+    margin: .8rem .8rem .8rem 1.0rem;
+    padding: 0;
+}
+
+blockquote {
+    border-left: 2px solid red;
+    margin: 5px;
+    padding: 2px 0 2px 2px;
+}
+
+blockquote p {
+    color: #666;
+    display: block;
+    margin: 0 0 20px 0;
+    padding-left: 10px;
+    width: 100%;
+}
+
+.post-link {
+    padding: -10px -10px;
+    margin: -40px 5px !important;
+    font-size: 22px;
+    color: #757575;
+}
+
+.post-link a {
+    color: #757575;
+}
+
+
+.post-link a:hover {
+    color: red;
+    text-decoration: underline;
+}
